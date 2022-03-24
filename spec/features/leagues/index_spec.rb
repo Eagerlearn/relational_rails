@@ -21,15 +21,5 @@ RSpec.describe 'leagues index page', type: :feature do
     expect(page).to have_content(@league_2.name)
     expect(page).to have_content(@league_3.name)
     expect(page).to have_content(@league_4.name)
-
-    expect(page).to have_content(@league_1.professional)
-    expect(page).to have_content(@league_2.professional)
-    expect(page).to have_content(@league_3.professional)
-    expect(page).to have_content(@league_4.professional)
-
-    expect(page).to have_content(@league_1.years_in_existence)
-    expect(page).to have_content(@league_2.years_in_existence)
-    expect(page).to have_content(@league_3.years_in_existence)
-    expect(page).to have_content(@league_4.years_in_existence)
   end
 end
