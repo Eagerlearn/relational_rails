@@ -8,7 +8,7 @@ RSpec.describe League do
     end
 
     it { should validate_presence_of :name }
-    it { should validate_presence_of :professional }
+    
     it { should validate_presence_of :years_in_existence }
   end
 end
