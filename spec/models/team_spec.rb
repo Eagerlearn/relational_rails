@@ -8,7 +8,7 @@ RSpec.describe Team do
     end
 
     it { should validate_presence_of :name }
-    it { should validate_presence_of :expansion_team }
+    
     it { should validate_presence_of :number_of_players }
   end
 end
