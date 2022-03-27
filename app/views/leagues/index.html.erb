@@ -1,5 +1,6 @@
 <h1>Leagues</h1>
 
-<% @leagues.each do |league| %>
+<% @leagues.order_by_creation_date.each do |league| %>
   <p>Name: <%= league.name %></p>
+  <p>Date Record Created: <%= league.created_at %></p>
 <% end %>

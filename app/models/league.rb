@@ -4,4 +4,8 @@ class League < ApplicationRecord
   validates_presence_of :name
 
   validates_presence_of :years_in_existence
+
+  def self.order_by_creation_date
+    League.order(created_at: :desc)
+  end
 end

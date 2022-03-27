@@ -15,11 +15,33 @@ RSpec.describe 'leagues index page', type: :feature do
 
     visit '/leagues'
   end
+
   it 'I see the name of each league record in the system' do
 
     expect(page).to have_content(@league_1.name)
     expect(page).to have_content(@league_2.name)
     expect(page).to have_content(@league_3.name)
     expect(page).to have_content(@league_4.name)
+  end
+
+  # User Story 6, Parent Index sorted by Most Recently Created
+  #
+  # As a visitor
+  # When I visit the parent index,
+  # I see that records are ordered by most recently created first
+  # And next to each of the records I see when it was created
+  it 'I see the leagues sorted by most recently created first' do
+
+    expect(@league_4.name).to appear_before(@league_3.name)
+    expect(@league_3.name).to appear_before(@league_2.name)
+    expect(@league_2.name).to appear_before(@league_1.name)
+  end
+
+  it 'Next to each league I see when it was created' do
+
+    expect(page).to have_content(@league_4.created_at)
+    expect(page).to have_content(@league_3.created_at)
+    expect(page).to have_content(@league_2.created_at)
+    expect(page).to have_content(@league_1.created_at)
   end
 end

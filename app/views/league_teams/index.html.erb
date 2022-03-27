@@ -1,7 +1,7 @@
 <h1>All Teams For a Specific League</h1>
 
 <% @teams.each do |team| %>
-<%= team.name %>
-<%= team.expansion_team %>
-<%= team.number_of_players %>
+<h3>Team Name: <%= team.name %></h3>
+<p>Expansion Team: <%= team.expansion_team %></p>
+<p>Number of Players: <%= team.number_of_players %></p>
 <% end %>
