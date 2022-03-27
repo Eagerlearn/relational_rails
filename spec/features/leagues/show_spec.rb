@@ -13,6 +13,9 @@ RSpec.describe 'leagues show page', type: :feature do
     @league_3 = League.create!(name: 'league3', professional: false, years_in_existence: 7)
     @league_4 = League.create!(name: 'league4', professional: true, years_in_existence: 9)
 
+    @team_2 = @league_3.teams.create!(name: 'team2', expansion_team: true, number_of_players: 10)
+    @team_3 = @league_3.teams.create!(name: 'team3', expansion_team: false, number_of_players: 53)
+
     visit "/leagues/#{@league_3.id}"
   end
 
@@ -27,11 +30,20 @@ RSpec.describe 'leagues show page', type: :feature do
     expect(page).to_not have_content(@league_1.years_in_existence)
 
     expect(page).to_not have_content(@league_2.name)
-    # expect(page).to_not have_content(@league_2.professional)
     expect(page).to_not have_content(@league_2.years_in_existence)
 
     expect(page).to_not have_content(@league_4.name)
     expect(page).to_not have_content(@league_4.professional)
     expect(page).to_not have_content(@league_4.years_in_existence)
+  end
+
+# User Story 7, Parent Child Count
+#
+# As a visitor
+# When I visit a parent's show page
+# I see a count of the number of children associated with this parent
+  it 'I see a count of the number of Teams associated with this league' do
+
+    expect(page).to have_content("Number of Teams: 2")
   end
 end
