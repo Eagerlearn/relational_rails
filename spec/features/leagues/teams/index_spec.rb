@@ -33,16 +33,29 @@ RSpec.describe 'League Team Index page' do
     expect(page).to_not have_content(@team_4.number_of_players)
   end
 
-  # User Story 8, Child Index Link
-  #
-  # As a visitor
-  # When I visit any page on the site
-  # Then I see a link at the top of the page that takes me to the Child Index
-    it 'Then I see a link at the top of the page that takes me to the Team index' do
-      expect(page).to have_link('Team Index Page')
+# User Story 8, Child Index Link
+#
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Child Index
+  it 'Then I see a link at the top of the page that takes me to the Team index' do
+    expect(page).to have_link('Team Index Page')
 
-      click_link('Team Index Page')
+    click_link('Team Index Page')
 
-      expect(current_path).to eq('/teams')
-    end
+    expect(current_path).to eq('/teams')
+  end
+
+# User Story 9, Parent Index Link
+
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Parent Index
+  it 'Then I see a link at the top of the page that takes me to the League index' do
+    expect(page).to have_link('League Index Page')
+
+    click_link('League Index Page')
+
+    expect(current_path).to eq('/leagues')
+  end
 end

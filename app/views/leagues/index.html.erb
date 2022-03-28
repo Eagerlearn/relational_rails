@@ -1,4 +1,5 @@
-<%= link_to "Team Index Page", "/teams" %>
+<p><%= link_to "Team Index Page", "/teams" %>
+  | <%= link_to "League Index Page", "/leagues" %></p>
 <h1>Leagues</h1>
 
 <% @leagues.order_by_creation_date.each do |league| %>

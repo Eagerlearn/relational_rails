@@ -24,12 +24,12 @@ RSpec.describe 'leagues index page', type: :feature do
     expect(page).to have_content(@league_4.name)
   end
 
-  # User Story 6, Parent Index sorted by Most Recently Created
-  #
-  # As a visitor
-  # When I visit the parent index,
-  # I see that records are ordered by most recently created first
-  # And next to each of the records I see when it was created
+# User Story 6, Parent Index sorted by Most Recently Created
+#
+# As a visitor
+# When I visit the parent index,
+# I see that records are ordered by most recently created first
+# And next to each of the records I see when it was created
   it 'I see the leagues sorted by most recently created first' do
 
     expect(@league_4.name).to appear_before(@league_3.name)
@@ -56,5 +56,17 @@ RSpec.describe 'leagues index page', type: :feature do
     click_link('Team Index Page')
 
     expect(current_path).to eq('/teams')
+  end
+# User Story 9, Parent Index Link
+
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Parent Index
+  it 'Then I see a link at the top of the page that takes me to the League index' do
+    expect(page).to have_link('League Index Page')
+
+    click_link('League Index Page')
+
+    expect(current_path).to eq('/leagues')
   end
 end

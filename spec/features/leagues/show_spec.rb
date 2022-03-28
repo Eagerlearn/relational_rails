@@ -47,16 +47,29 @@ RSpec.describe 'leagues show page', type: :feature do
     expect(page).to have_content("Number of Teams: 2")
   end
 
-  # User Story 8, Child Index Link
-  #
-  # As a visitor
-  # When I visit any page on the site
-  # Then I see a link at the top of the page that takes me to the Child Index
-    it 'Then I see a link at the top of the page that takes me to the Team index' do
-      expect(page).to have_link('Team Index Page')
+# User Story 8, Child Index Link
+#
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Child Index
+  it 'Then I see a link at the top of the page that takes me to the Team index' do
+    expect(page).to have_link('Team Index Page')
 
-      click_link('Team Index Page')
+    click_link('Team Index Page')
 
-      expect(current_path).to eq('/teams')
-    end
+    expect(current_path).to eq('/teams')
+  end
+
+# User Story 9, Parent Index Link
+
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Parent Index
+  it 'Then I see a link at the top of the page that takes me to the League index' do
+    expect(page).to have_link('League Index Page')
+
+    click_link('League Index Page')
+
+    expect(current_path).to eq('/leagues')
+  end
 end
