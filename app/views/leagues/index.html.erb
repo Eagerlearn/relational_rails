@@ -1,6 +1,7 @@
+<%= link_to "Team Index Page", "/teams" %>
 <h1>Leagues</h1>
 
 <% @leagues.order_by_creation_date.each do |league| %>
-  <p>Name: <%= league.name %></p>
-  <p>Date Record Created: <%= league.created_at %></p>
+  <p>Name: <%= league.name %>
+  - Date Record Created: <%= league.created_at %></p>
 <% end %>

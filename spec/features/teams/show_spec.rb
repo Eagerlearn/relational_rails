@@ -26,4 +26,17 @@ RSpec.describe 'Team show page' do
     expect(page).to_not have_content(@team_4.expansion_team)
     expect(page).to_not have_content(@team_4.number_of_players)
   end
+
+  # User Story 8, Child Index Link
+  #
+  # As a visitor
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Child Index
+    it 'Then I see a link at the top of the page that takes me to the Team index' do
+      expect(page).to have_link('Team Index Page')
+
+      click_link('Team Index Page')
+
+      expect(current_path).to eq('/teams')
+    end
 end
