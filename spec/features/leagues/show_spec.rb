@@ -72,4 +72,16 @@ RSpec.describe 'leagues show page', type: :feature do
 
     expect(current_path).to eq('/leagues')
   end
+# User Story 10, Parent Child Index Link
+#
+# As a visitor
+# When I visit a parent show page ('/parents/:id')
+# Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+  it 'Then I see a link to take me to the leagues team index page' do
+    expect(page).to have_link('League Team Index Page')
+
+    click_link('League Team Index Page')
+
+    expect(current_path).to eq("/leagues/#{@league_3.id}/teams")
+  end
 end

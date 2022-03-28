@@ -1,5 +1,6 @@
 <p><%= link_to "Team Index Page", "/teams" %>
- | <%= link_to "League Index Page", "/leagues" %></p>
+ | <%= link_to "League Index Page", "/leagues" %>
+ | <%= link_to "League Team Index Page", "/leagues/#{@league.id}/teams" %></p>
 
 <h1>Specific League Show Page</h1>
 <h3>League Name: <%= @league.name %></h3>
