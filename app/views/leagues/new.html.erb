@@ -1,0 +1,9 @@
+<%= form_with url: '/leagues', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :professional %>
+  <%= form.text_field :professional %>
+  <%= form.label :years_in_existence %>
+  <%= form.text_field :years_in_existence %>
+  <%= form.submit 'Create League' %>
+<% end %>
