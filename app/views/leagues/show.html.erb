@@ -1,8 +1,10 @@
 <p><%= link_to "Team Index Page", "/teams" %>
  | <%= link_to "League Index Page", "/leagues" %>
  | <%= link_to "League Team Index Page", "/leagues/#{@league.id}/teams" %></p>
-
 <h1>Specific League Show Page</h1>
+
+<%= link_to "Update #{@league.name}", "/leagues/#{@league.id}/edit", method: :get %>
+
 <h3>League Name: <%= @league.name %></h3>
 <p>Professional Status: <%= @league.professional %></p>
 <p>Years in Existence: <%= @league.years_in_existence %></p>
