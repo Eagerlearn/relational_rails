@@ -3,6 +3,7 @@
  <h1>Specific Team Show Page</h1>
 
  <%= link_to "Update #{@team.name}", "/teams/#{@team.id}/edit", method: :get %>
+ | <%= link_to "Delete #{@team.name}", "/teams/#{@team.id}", method: :delete %>
 
 <h3>Team Name: <%= @team.name %></h3>
 <p>Expansion Team: <%= @team.expansion_team %></p>

@@ -14,6 +14,7 @@ class League < ApplicationRecord
   end
 
   def alphabetical_order
-    teams.order(:name)
+    # require "pry"; binding.pry
+    self.teams.order(:name)
   end
 end

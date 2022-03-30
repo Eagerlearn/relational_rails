@@ -12,7 +12,8 @@ RSpec.describe 'League Team Index page' do
     @league_2 = League.create!(name: 'league2', professional: false, years_in_existence: 10)
 
     @team_1 = @league_1.teams.create!(name: 'team1', expansion_team: true, number_of_players: 10)
-    @team_5 = @league_1.teams.create!(name: 'team5', expansion_team: true, number_of_players: 14)
+    @team_5 = @league_1.teams.create!(name: 'teams5', expansion_team: true, number_of_players: 14)
+    @team_3 = @league_1.teams.create!(name: 'seam3', expansion_team: true, number_of_players: 22)
     @team_4 = @league_2.teams.create!(name: 'team4', expansion_team: false, number_of_players: 53)
 
     visit "/leagues/#{@league_1.id}/teams"
@@ -70,6 +71,7 @@ RSpec.describe 'League Team Index page' do
   it 'Then I see a link to sort the teams in alphabetical order' do
     click_link('Sort Teams Alphabetically')
 
+    expect(@team_3.name).to appear_before(@team_1.name)
     expect(@team_1.name).to appear_before(@team_5.name)
     expect(current_path).to eq("/leagues/#{@league_1.id}/teams")
   end

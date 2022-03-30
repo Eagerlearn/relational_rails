@@ -1,7 +1,11 @@
 class LeagueTeamsController < ApplicationController
   def index
     @league = League.find(params[:league_id])
-    @teams = @league.teams
+    if params[:sort]
+      @teams = @league.alphabetical_order
+    else
+      @teams = @league.teams
+    end
   end
 
   def new

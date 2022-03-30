@@ -56,4 +56,23 @@ RSpec.describe 'Team show page' do
 
     expect(current_path).to eq('/leagues')
   end
+
+# User Story 20, Child Delete
+#
+# As a visitor
+# When I visit a child show page
+# Then I see a link to delete the child "Delete Child"
+# When I click the link
+# Then a 'DELETE' request is sent to '/child_table_name/:id',
+# the child is deleted,
+# and I am redirected to the child index page where I no longer see this child
+  it 'Then I see a link to delete the team' do
+    click_link "Delete #{@team_1.name}"
+
+    expect(current_path).to eq("/teams")
+
+    expect(page).to_not have_content(@team_1.name)
+    # expect(page).to_not have_content(@team_1.expansion_team)
+    expect(page).to_not have_content(@team_1.number_of_players)
+  end
 end
