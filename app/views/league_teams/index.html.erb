@@ -7,7 +7,7 @@
 <%= link_to 'Create Team', "/leagues/#{@league.id}/teams/new" %>
 
 <% @teams.each do |team| %>
-<h3>Team Name: <%= team.name %></h3>
+<h3>Team Name: <%= team.name %> | <%= link_to "Edit #{team.name}", "/teams/#{team.id}/edit" %></h3>
 <p>Expansion Team: <%= team.expansion_team %></p>
 <p>Number of Players: <%= team.number_of_players %></p>
 <% end %>

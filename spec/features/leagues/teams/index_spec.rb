@@ -73,4 +73,17 @@ RSpec.describe 'League Team Index page' do
     expect(@team_1.name).to appear_before(@team_5.name)
     expect(current_path).to eq("/leagues/#{@league_1.id}/teams")
   end
+
+# User Story 18, Child Update From Childs Index Page
+#
+# As a visitor
+# When I visit the `child_table_name` index page or a parent `child_table_name` index page
+# Next to every child, I see a link to edit that child's info
+# When I click the link
+# I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
+  it 'Next to the team I see a link to edit the teams information' do
+    click_link "Edit #{@team_1.name}"
+
+    expect(current_path).to eq("/teams/#{@team_1.id}/edit")
+  end
 end
