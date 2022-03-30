@@ -71,6 +71,22 @@ RSpec.describe 'leagues index page', type: :feature do
 
         expect(current_path).to eq('/leagues')
       end
+
+# User Story 17, Parent Update From Parent Index Page
+#
+# As a visitor
+# When I visit the parent index page
+# Next to every parent, I see a link to edit that parent's info
+# When I click the link
+# I should be taken to that parents edit page where I can update its information just like in User Story 4
+      it 'Next to every League I see a link to edit that leagues information' do
+        expect(page).to have_content("Edit #{@league_2.name}")
+        expect(page).to have_content("Edit #{@league_3.name}")
+        expect(page).to have_content("Edit #{@league_4.name}")
+        click_link "Edit #{@league_1.name}"
+
+        expect(current_path).to eq("/leagues/#{@league_1.id}/edit")
+      end
     end
   end
 end
