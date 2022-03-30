@@ -4,6 +4,7 @@
 <h1>Specific League Show Page</h1>
 
 <%= link_to "Update #{@league.name}", "/leagues/#{@league.id}/edit", method: :get %>
+ | <%= link_to "Delete #{@league.name}", "/leagues/#{@league.id}", method: :delete %>
 
 <h3>League Name: <%= @league.name %></h3>
 <p>Professional Status: <%= @league.professional %></p>

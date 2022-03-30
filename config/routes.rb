@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/leagues/:id', to: 'leagues#show'
   get '/leagues/:id/edit', to: 'leagues#edit'
   patch '/leagues/:id', to: 'leagues#update'
+  delete '/leagues/:id', to: 'leagues#destroy'
 
   get '/teams', to: 'teams#index'
   get '/teams/:id', to: 'teams#show'

@@ -25,6 +25,12 @@ class LeaguesController < ApplicationController
     redirect_to "/leagues/#{@league.id}"
   end
 
+  def destroy
+    league = League.find(params[:id])
+    league.destroy
+    redirect_to '/leagues' 
+  end
+
   private
   def league_params
     params.permit(:name, :professional, :years_in_existence)

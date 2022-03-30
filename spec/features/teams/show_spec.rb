@@ -9,9 +9,14 @@ RSpec.describe 'Team show page' do
   before do
     @league_1 = League.create!(name: 'league1', professional: true, years_in_existence: 5)
     @league_2 = League.create!(name: 'league2', professional: false, years_in_existence: 10)
+    @league_4 = League.create!(name: 'league4', professional: true, years_in_existence: 20)
+    @league_5 = League.create!(name: 'league5', professional: true, years_in_existence: 15)
+
 
     @team_1 = @league_1.teams.create!(name: 'team1', expansion_team: true, number_of_players: 10)
     @team_4 = @league_2.teams.create!(name: 'team4', expansion_team: false, number_of_players: 53)
+    @team_6 = @league_5.teams.create!(name: 'team6', expansion_team: true, number_of_players: 25)
+    @team_5 = @league_4.teams.create!(name: 'team5', expansion_team: true, number_of_players: 17)
 
     visit "/teams/#{@team_1.id}"
   end

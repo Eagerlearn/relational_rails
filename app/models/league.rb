@@ -1,5 +1,5 @@
 class League < ApplicationRecord
-  has_many :teams
+  has_many :teams, :dependent => :destroy
   validates :professional, inclusion: { in: [ true, false ] }
   validates_presence_of :name
 
