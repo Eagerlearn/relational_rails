@@ -3,6 +3,7 @@
 <h1>Leagues</h1>
 
 <%= link_to 'New League', '/leagues/new' %>
+<%= link_to 'Sort leagues by team count', '/leagues' %>
 
 <% @leagues.order_by_creation_date.each do |league| %>
   <p>Name: <%= league.name %>

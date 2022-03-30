@@ -13,6 +13,11 @@ RSpec.describe 'leagues index page', type: :feature do
     @league_3 = League.create!(name: 'league3', professional: false, years_in_existence: 7)
     @league_4 = League.create!(name: 'league4', professional: true, years_in_existence: 3)
 
+    @team_1 = @league_1.teams.create!(name: 'team1', expansion_team: true, number_of_players: 10)
+    @team_5 = @league_1.teams.create!(name: 'teams5', expansion_team: true, number_of_players: 14)
+    @team_3 = @league_1.teams.create!(name: 'seam3', expansion_team: true, number_of_players: 22)
+    @team_4 = @league_4.teams.create!(name: 'team4', expansion_team: false, number_of_players: 53)
+
     visit '/leagues'
   end
 
@@ -99,6 +104,25 @@ RSpec.describe 'leagues index page', type: :feature do
 
         expect(current_path).to eq("/leagues")
         expect(page).to_not have_content("#{@league_1.name}")
+      end
+
+# Sort Parents by Number of Children
+#
+# As a visitor
+# When I visit the Parents Index Page
+# Then I see a link to sort parents by the number of `child_table_name` they have
+# When I click on the link
+# I'm taken back to the Parent Index Page where I see all of the parents in order of their count of `child_table_name` (highest to lowest) And, I see the number of children next to each parent name
+      it 'Then I see a link to sort the league by the number of teams they have' do
+        click_link "Sort leagues by team count"
+
+        expect(current_path).to eq("/leagues")
+        expect(page).to have_content("Number of teams: 3")
+        expect(page).to have_content("Number of teams: 1")
+        expect(page).to have_content("Number of teams: 0")
+        expect(@league_1).to appear_before(@league_4)
+        expect(@league_4).to appear_before(@league_2)
+        expect(@league_4).to appear_before(@league_3)
       end
     end
   end
