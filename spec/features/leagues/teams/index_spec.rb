@@ -88,4 +88,17 @@ RSpec.describe 'League Team Index page' do
 
     expect(current_path).to eq("/teams/#{@team_1.id}/edit")
   end
+
+# User Story 21, Display Records Over a Given Threshold
+#
+# As a visitor
+# When I visit the Parent's children Index Page
+# I see a form that allows me to input a number value
+# When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+# Then I am brought back to the current index page with only the records that meet that threshold shown.
+  # it 'I see a form that allows me to input value' do
+  #   fill_in
+  # end
+  #
+  # it ''
 end

@@ -87,6 +87,19 @@ RSpec.describe 'leagues index page', type: :feature do
 
         expect(current_path).to eq("/leagues/#{@league_1.id}/edit")
       end
+# User Story 22, Parent Delete From Parent Index Page
+#
+# As a visitor
+# When I visit the parent index page
+# Next to every parent, I see a link to delete that parent
+# When I click the link
+# I am returned to the Parent Index Page where I no longer see that parent
+      it 'Next to every league I see a link to delete that league' do
+        click_link "Delete #{@league_1.name}"
+
+        expect(current_path).to eq("/leagues")
+        expect(page).to_not have_content("#{@league_1.name}")
+      end
     end
   end
 end

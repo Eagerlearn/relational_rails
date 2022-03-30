@@ -7,5 +7,6 @@
 <% @leagues.order_by_creation_date.each do |league| %>
   <p>Name: <%= league.name %>
   - Date Record Created: <%= league.created_at %>
-   | <%= link_to "Edit #{league.name}", "/leagues/#{league.id}/edit" %></p>
+   | <%= link_to "Edit #{league.name}", "/leagues/#{league.id}/edit" %>
+   | <%= link_to "Delete #{league.name}", "/leagues/#{league.id}", method: :delete %></p>
 <% end %>
