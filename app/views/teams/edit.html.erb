@@ -1,0 +1,9 @@
+<%= form_with url: "/teams/#{@team.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :expansion_team %>
+  <%= form.text_field :expansion_team %>
+  <%= form.label :number_of_players %>
+  <%= form.text_field :number_of_players %>
+  <%= form.submit "Update #{@team.name}" %>
+<% end %>

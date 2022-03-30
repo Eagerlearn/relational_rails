@@ -1,7 +1,9 @@
 <p><%= link_to "Team Index Page", "/teams" %>
  | <%= link_to "League Index Page", "/leagues" %></p>
+ <h1>Specific Team Show Page</h1>
 
-<h1>Specific Team Show Page</h1>
+ <%= link_to "Update #{@team.name}", "/teams/#{@team.id}/edit", method: :get %>
+
 <h3>Team Name: <%= @team.name %></h3>
 <p>Expansion Team: <%= @team.expansion_team %></p>
 <p>Number of Players: <%= @team.number_of_players %></p>

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   get '/teams', to: 'teams#index'
   get '/teams/:id', to: 'teams#show'
+  get 'teams/:id/edit', to: 'teams#edit'
+  patch '/teams/:id', to: 'teams#update'
 
   get '/leagues/:league_id/teams', to: 'league_teams#index'
+  get '/leagues/:league_id/teams/new', to: 'league_teams#new'
+  post '/leagues/:league_id/teams', to: 'league_teams#create'
 end

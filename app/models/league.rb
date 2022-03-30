@@ -12,4 +12,8 @@ class League < ApplicationRecord
   def total_team_count
     self.teams.count
   end
+
+  def alphabetical_order
+    teams.order(:name)
+  end
 end
