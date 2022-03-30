@@ -14,15 +14,15 @@ RSpec.describe 'teams index page' do
 
     visit '/teams'
   end
-  it 'I see each team in the system including the teams attributes' do
+  it 'I see each expansion team in the system including the teams attributes' do
 
     expect(page).to have_content(@team_1.name)
     expect(page).to have_content(@team_1.expansion_team)
     expect(page).to have_content(@team_1.number_of_players)
 
-    expect(page).to have_content(@team_4.name)
-    expect(page).to have_content(@team_4.expansion_team)
-    expect(page).to have_content(@team_4.number_of_players)
+    expect(page).to_not have_content(@team_4.name)
+    expect(page).to_not have_content(@team_4.expansion_team)
+    expect(page).to_not have_content(@team_4.number_of_players)
   end
 
 # User Story 8, Child Index Link
@@ -49,5 +49,20 @@ RSpec.describe 'teams index page' do
     click_link('League Index Page')
 
     expect(current_path).to eq('/leagues')
+  end
+
+# User Story 15, Child Index only shows `true` Records
+#
+# As a visitor
+# When I visit the child index
+# Then I only see records where the boolean column is `true`
+  it 'Then I only see records where the boolean column is true' do
+    expect(page).to have_content(@team_1.name)
+    expect(page).to have_content(@team_1.expansion_team)
+    expect(page).to have_content(@team_1.number_of_players)
+
+    expect(page).to_not have_content(@team_4.name)
+    expect(page).to_not have_content(@team_4.expansion_team)
+    expect(page).to_not have_content(@team_4.number_of_players)
   end
 end

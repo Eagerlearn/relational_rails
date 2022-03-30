@@ -32,5 +32,17 @@ RSpec.describe League do
     expect(league_3.total_team_count).to eq(2)
     expect(league_4.total_team_count).to eq(1)
   end
+
+  it 'sorts the leagues teams in alphabetical order by name' do
+    league_1 = League.create!(name: 'league1', professional: true, years_in_existence: 5)
+    league_2 = League.create!(name: 'league2', professional: false, years_in_existence: 10)
+
+    team_1 = league_1.teams.create!(name: 'teams1', expansion_team: true, number_of_players: 10)
+    team_3 = league_1.teams.create!(name: 'teams3', expansion_team: true, number_of_players: 25)
+    team_4 = league_2.teams.create!(name: 'team4', expansion_team: false, number_of_players: 53)
+    team_5 = league_1.teams.create!(name: 'team5', expansion_team: true, number_of_players: 15)
+
+    expect(league_1.alphabetical_order).to eq([team_5, team_1, team_3])
+  end
 end
 

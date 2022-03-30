@@ -58,4 +58,19 @@ RSpec.describe 'League Team Index page' do
 
     expect(current_path).to eq('/leagues')
   end
+
+# User Story 16, Sort Parent's Children in Alphabetical Order by name
+#
+# As a visitor
+# When I visit the Parent's children Index Page
+# Then I see a link to sort children in alphabetical order
+# When I click on the link
+# I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+
+  it 'Then I see a link to sort the teams in alphabetical order' do
+    click_link('Sort Teams Alphabetically')
+
+    expect(@team_1.name).to appear_before(@team_5.name)
+    expect(current_path).to eq("/leagues/#{@league_1.id}/teams")
+  end
 end
