@@ -96,9 +96,26 @@ RSpec.describe 'League Team Index page' do
 # I see a form that allows me to input a number value
 # When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
 # Then I am brought back to the current index page with only the records that meet that threshold shown.
-  # it 'I see a form that allows me to input value' do
-  #   fill_in
-  # end
-  #
-  # it ''
+  it 'I see a form that allows me to input value' do
+    fill_in 'Teams with players over', with: '10'
+    click_button 'Only return teams with more than 10 players'
+
+    expect(page).to have_content("#{@team_3.name}")
+    expect(page).to have_content("#{@team_5.name}")
+    expect(page).to_not have_content("#{@team_1.name}")
+  end
+
+# User Story 23, Child Delete From Childs Index Page
+#
+# As a visitor
+# When I visit the `child_table_name` index page or a parent `child_table_name` index page
+# Next to every child, I see a link to delete that child
+# When I click the link
+# I should be taken to the `child_table_name` index page where I no longer see that child
+  it 'Next to the Team I see a link to delete the team' do
+    click_link "Delete #{@team_1.name}"
+
+    expect(current_path).to eq("/teams")
+    expect(page).to_not have_content("#{@team_1.name}")
+  end
 end

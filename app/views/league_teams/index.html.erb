@@ -5,9 +5,15 @@
 <h1>All Teams For a Specific League</h1>
 
 <%= link_to 'Create Team', "/leagues/#{@league.id}/teams/new" %>
+<%= form_with url: "/leagues/#{@league.id}/teams", method: :get, local: true do |form| %>
+  <%= form.label :number_of_players, 'Teams with players over' %>
+  <%= form.text_field :number_of_players %>
+  <%= form.submit 'Only return teams with more than 10 players' %>
+<% end %>
 
 <% @teams.each do |team| %>
-<h3>Team Name: <%= team.name %> | <%= link_to "Edit #{team.name}", "/teams/#{team.id}/edit" %></h3>
+<h3>Team Name: <%= team.name %> | <%= link_to "Edit #{team.name}", "/teams/#{team.id}/edit" %>
+ | <%= link_to "Delete #{team.name}", "/teams/#{team.id}", method: :delete %></h3>
 <p>Expansion Team: <%= team.expansion_team %></p>
 <p>Number of Players: <%= team.number_of_players %></p>
 <% end %>

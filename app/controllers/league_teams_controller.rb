@@ -3,6 +3,8 @@ class LeagueTeamsController < ApplicationController
     @league = League.find(params[:league_id])
     if params[:sort]
       @teams = @league.alphabetical_order
+    elsif params[:number_of_players]
+      @teams = @league.number_of_players_filter(params[:number_of_players])
     else
       @teams = @league.teams
     end

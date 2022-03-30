@@ -78,4 +78,18 @@ RSpec.describe 'teams index page' do
 
     expect(current_path).to eq("/teams/#{@team_1.id}/edit")
   end
+
+# User Story 23, Child Delete From Childs Index Page
+#
+# As a visitor
+# When I visit the `child_table_name` index page or a parent `child_table_name` index page
+# Next to every child, I see a link to delete that child
+# When I click the link
+# I should be taken to the `child_table_name` index page where I no longer see that child
+  it 'Next to the Team I see a link to delete the team' do
+    click_link "Delete #{@team_1.name}"
+
+    expect(current_path).to eq("/teams")
+    expect(page).to_not have_content("#{@team_1.name}")
+  end
 end

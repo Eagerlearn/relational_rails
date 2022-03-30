@@ -17,4 +17,8 @@ class League < ApplicationRecord
     # require "pry"; binding.pry
     self.teams.order(:name)
   end
+
+  def number_of_players_filter(number_of_players)
+    teams.where('number_of_players > ?', number_of_players)
+  end
 end
